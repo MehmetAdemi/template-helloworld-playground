@@ -7,8 +7,12 @@ import {
 } from 'remotion';
 import {Arc} from './Arc';
 import {Atom} from './Atom';
+import React, {} from 'react';
 
-export const Logo: React.FC = () => {
+export const Logo: React.FC<{
+	color1: string;
+	color2: string;
+}> = ({color1, color2}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
@@ -54,18 +58,24 @@ export const Logo: React.FC = () => {
 				rotateProgress={rotationDevelopment}
 				progress={development}
 				rotation={30}
+				color1={color1}
+				color2={color2}
 			/>
 			<Arc
 				rotateProgress={rotationDevelopment}
 				rotation={90}
 				progress={development}
+				color1={color1}
+				color2={color2}
 			/>
 			<Arc
 				rotateProgress={rotationDevelopment}
 				rotation={-30}
 				progress={development}
+				color1={color1}
+				color2={color2}
 			/>
-			<Atom scale={rotationDevelopment} />
+			<Atom scale={rotationDevelopment} color1={color1} color2={color2} />
 		</AbsoluteFill>
 	);
 };
